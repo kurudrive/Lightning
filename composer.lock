@@ -4,8 +4,71 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6ffcb7909daa309ef799c97d9dc47bea",
-    "packages": [],
+    "content-hash": "136d37259ce9d87712bdd51d80e0c9f6",
+    "packages": [
+        {
+            "name": "vektor-inc/font-awesome",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vektor-inc/font-awesome.git",
+                "reference": "81915de4615827fa881a46340d02baf8899e86ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vektor-inc/font-awesome/zipball/81915de4615827fa881a46340d02baf8899e86ef",
+                "reference": "81915de4615827fa881a46340d02baf8899e86ef",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL 2.0 or Lator"
+            ],
+            "authors": [
+                {
+                    "name": "Vektor,Inc",
+                    "homepage": "https://www.vektor-inc.co.jp/"
+                }
+            ],
+            "description": "Font Awesome",
+            "time": "2020-08-31T00:34:21+00:00"
+        },
+        {
+            "name": "vektor-inc/term-color",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vektor-inc/term-color.git",
+                "reference": "e580ab74201de598060555518e85d1003e7e54d7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vektor-inc/term-color/zipball/e580ab74201de598060555518e85d1003e7e54d7",
+                "reference": "e580ab74201de598060555518e85d1003e7e54d7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL 2.0 or Lator"
+            ],
+            "authors": [
+                {
+                    "name": "Vektor,Inc",
+                    "homepage": "https://www.vektor-inc.co.jp/"
+                }
+            ],
+            "description": "Term Color",
+            "time": "2020-08-31T00:45:32+00:00"
+        }
+    ],
     "packages-dev": [
         {
             "name": "doctrine/instantiator",
@@ -60,6 +123,20 @@
             "keywords": [
                 "constructor",
                 "instantiate"
+            ],
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Finstantiator",
+                    "type": "tidelift"
+                }
             ],
             "time": "2020-05-29T17:27:14+00:00"
         },
@@ -674,6 +751,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2019-09-17T06:23:10+00:00"
         },
         {
@@ -1382,6 +1460,20 @@
                 "polyfill",
                 "portable"
             ],
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-05-12T16:14:59+00:00"
         },
         {
@@ -1480,5 +1572,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }

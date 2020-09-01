@@ -6,7 +6,10 @@
             "email": "info@vektor-inc.co.jp"
         }
     ],
-    "require": {},
+    "require": {
+        "vektor-inc/font-awesome": "^1.0",
+        "vektor-inc/term-color": "^1.0"
+    },
     "require-dev": {
         "phpunit/phpunit": "7.5.9"
     }

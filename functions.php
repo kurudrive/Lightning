@@ -236,8 +236,8 @@ require get_parent_theme_file_path( '/inc/class-vk-helpers.php' );
 /*-------------------------------------------*/
 require get_parent_theme_file_path( '/inc/package-manager.php' );
 require get_parent_theme_file_path( '/inc/class-design-manager.php' );
-require get_parent_theme_file_path( '/inc/font-awesome/font-awesome-config.php' );
-require get_parent_theme_file_path( '/inc/term-color/term-color-config.php' );
+require get_parent_theme_file_path( '/vendor/vektor-inc/font-awesome/font-awesome-config.php' );
+require get_parent_theme_file_path( '/vendor/vektor-inc/term-color/term-color-config.php' );
 require get_parent_theme_file_path( '/inc/vk-components/vk-components-config.php' );
 require get_parent_theme_file_path( '/inc/template-redirect.php' );
 require get_parent_theme_file_path( '/inc/layout-controller/layout-controller.php' );
