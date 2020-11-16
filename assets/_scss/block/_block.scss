@@ -47,41 +47,61 @@
 	}
 }
 
+:root {
+	--color-border: rgba(0,0,0,.13);
+}
+
 /*-------------------------------------------*/
 /*  「最新の記事」ブロック
 /*-------------------------------------------*/
+
+/* 
+一つのアイテム内の余白は下部をpaddingでとってしまうと、アイテム内最後の要素のmargin-bottomと加算されて広くなってしまうので、
+上部のみにつけて、アイテム内最後の要素に対して margin-bottom をわりあてている
+*/
 .wp-block-latest-posts {
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
-	&.is-grid {
-		//グリット表示の場合
-		margin-left: -8px;
-		margin-right: -8px;
-		li {
-			margin: 0 8px 0 8px;
-			padding: 0.5rem;
-			border-bottom: none;
-		}
-	}
-	&__featured-image {
-		margin-bottom: 1em;
-	}
 	li {
 		margin: 0;
-		padding: 1rem 0;
+		padding: var(--vk-margin-loop-inner,1em) 0 0;
 		border-bottom: 1px dotted #666;
-
+		overflow: hidden;
+		border-bottom: 1px dotted var(--color-border);
+		line-height: var(--vk-line-height-low);
+		& > *:last-child {
+			display: block;
+			margin-bottom: var(--vk-margin-loop-inner,1em);
+		}
 		a {
 			color: #464646;
-			@media (max-width: 768px) {
-				font-size: 1rem;
-			}
 		}
-
 		time {
 			color: #d44950;
 		}
+	}
+	&__featured-image {
+		margin-bottom: var(--vk-margin-loop-inner);
+		.wp-post-image{
+			object-fit: cover;
+			border: 1px solid var(--color-border);
+		}
+	}
+	&__post-excerpt {
+		font-size: var( --vk-size-text-sm );
+	}
+	//グリット表示の場合
+	&.is-grid {
+		margin-left: -10px;
+		margin-right: -10px;
+		li {
+			margin: 0 10px 0 10px;
+			border-bottom: 1px solid var(--color-border);
+		}
+		// .wp-block-latest-posts__featured-image {
+		// 	margin-bottom: var(--vk-margin-loop-inner);
+		// }
 	}
 }
 
@@ -99,41 +119,6 @@
 		}
 	}
 }
-
-:root {
-	--color-border: rgba(0,0,0,.13);
-}
-
-/*-------------------------------------------*/
-/* 最新の投稿
-/*-------------------------------------------*/
-.wp-block-latest-posts {
-	&.wp-block-latest-posts__list{
-		margin: 1.2em 0;
-	}
-	&.is-grid{
-		li{
-			padding: 1em 0;
-			border-bottom: 1px solid var(--color-border);
-		}
-	}
-	li{
-		overflow: hidden;
-		border-bottom: 1px dotted var(--color-border);
-	}
-	&__featured-image{
-		margin-top: 0;
-		margin-bottom: 0;		
-		.wp-post-image{
-			object-fit: cover;
-			border: 1px solid var(--color-border);
-		}
-	}
-	
-}
-
-
-
 
 /*-------------------------------------------*/
 /*  「検索」ブロック
