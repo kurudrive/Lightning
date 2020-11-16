@@ -100,6 +100,41 @@
 	}
 }
 
+:root {
+	--color-border: rgba(0,0,0,.13);
+}
+
+/*-------------------------------------------*/
+/* 最新の投稿
+/*-------------------------------------------*/
+.wp-block-latest-posts {
+	&.wp-block-latest-posts__list{
+		margin: 1.2em 0;
+	}
+	&.is-grid{
+		li{
+			padding: 1em 0;
+			border-bottom: 1px solid var(--color-border);
+		}
+	}
+	li{
+		overflow: hidden;
+		border-bottom: 1px dotted var(--color-border);
+	}
+	&__featured-image{
+		margin-top: 0;
+		margin-bottom: 0;		
+		.wp-post-image{
+			object-fit: cover;
+			border: 1px solid var(--color-border);
+		}
+	}
+	
+}
+
+
+
+
 /*-------------------------------------------*/
 /*  「検索」ブロック
 /*-------------------------------------------*/
@@ -125,5 +160,4 @@
 		margin-right: 0;
 		margin-bottom: 0;
 	}
-
 }
