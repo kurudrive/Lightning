@@ -2,7 +2,8 @@
 	--color-key-default: #337ab7;
 	--color-key-dark-default: #2e6da4;
 	--vk-size-text-sm: .75rem;
-	--vk-margin-loop-inner: 1rem;
+	--vk-margin-minisec-inner: 1rem;
+	--vk-margin-minisec-inner-elem: 0.6rem;
 	--vk-line-height-low: 1.8;
 }
 
@@ -765,7 +766,7 @@ https://github.com/vektor-inc/vektor-wp-libraries
 
 .wp-block-latest-posts li {
 	margin: 0;
-	padding: var(--vk-margin-loop-inner, 1em) 0 0;
+	padding: var(--vk-margin-minisec-inner, 1em) 0 0;
 	border-bottom: 1px dotted #666;
 	overflow: hidden;
 	border-bottom: 1px dotted var(--color-border);
@@ -774,7 +775,7 @@ https://github.com/vektor-inc/vektor-wp-libraries
 
 .wp-block-latest-posts li > *:last-child {
 	display: block;
-	margin-bottom: var(--vk-margin-loop-inner, 1em);
+	margin-bottom: var(--vk-margin-minisec-inner, 1em);
 }
 
 .wp-block-latest-posts li a {
@@ -786,16 +787,22 @@ https://github.com/vektor-inc/vektor-wp-libraries
 }
 
 .wp-block-latest-posts__featured-image {
-	margin-bottom: var(--vk-margin-loop-inner);
+	margin-bottom: var(--vk-margin-minisec-inner-elem);
 }
 
-.wp-block-latest-posts__featured-image .wp-post-image {
+.wp-block-latest-posts__featured-image.alignright,
+.wp-block-latest-posts__featured-image.alignleft {
+	margin-bottom: var(--vk-margin-minisec-inner);
+}
+
+.wp-block-latest-posts__featured-image img {
 	-o-object-fit: cover;
 	   object-fit: cover;
 	border: 1px solid var(--color-border);
 }
 
 .wp-block-latest-posts__post-excerpt {
+	margin-top: var(--vk-margin-minisec-inner-elem);
 	font-size: var(--vk-size-text-sm);
 }
 
