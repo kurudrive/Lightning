@@ -938,55 +938,44 @@ div[class*="__inner-container"] {
 	background-color: #007bff;
 }
 
+/*
+
+full を 100% 指定した場合の書き方
+簡単だが カバーのインナーをコンテンツ幅にキレイに揃えられていない
+
+*/
+
 :root {
-	--vk-width-editor-container: calc(100vw * 0.8);
-	--vk-width-container-padding: 15px;
-	--vk-width-editor-sidebar: 280px;
-	--vk-width-editor-leftmenu: 160px;
+	--vk-width-editor-container: 70%;
 	--vk-width-editor-leftmenu-folded: 36px;
 }
 
 body.is-fullscreen-mode .edit-post-layout:not(.is-sidebar-opened) {
-	--vk-width-editor-full: 100vw;
-	--vk-width-editor-container-body: calc( var(--vk-width-editor-container) - var(--vk-width-container-padding) * 2 );
-	--vk-width-editor-wide: calc( var(--vk-width-editor-container-body) + ( 100vw - var(--vk-width-editor-container-body) ) / 2 );
-	--vk-width-editor-wide-nega-margin: calc( ( var(--vk-width-editor-container-body) - 100vw ) / 4 );
+	--vk-width-editor-container-inner: var(--vk-width-editor-container);
 }
 
 body.is-fullscreen-mode .edit-post-layout.is-sidebar-opened {
-	--vk-width-editor-full: calc( 100vw - 280px );
-	--vk-width-editor-wide: calc( 100vw - 280px - ( ( 100vw - 280px ) * ( 1 - 0.8 ) / 2 ) );
-	--vk-width-editor-container-body: calc(  ( 100vw - 280px ) * 0.8 - 30px );
+	--vk-width-editor-container-inner: calc(  ( 100vw - 280px ) * var(--vk-width-editor-container) );
 }
 
 body:not(.is-fullscreen-mode) .edit-post-layout.is-sidebar-opened {
-	--vk-width-editor-container: calc( var(--vk-width-container) - var(--vk-width-editor-leftmenu) - var(--vk-width-editor-sidebar) );
-	--vk-width-editor-container-body: calc(  ( 100vw - 280px - 160px ) * 0.8 - 30px );
-	--vk-width-editor-full: calc( 100vw - var(--vk-width-editor-leftmenu) - var(--vk-width-editor-sidebar) );
-	--vk-width-editor-wide: calc( var( --vk-width-editor-container-body ) + ( 100vw - var( --vk-width-editor-container-body ) - var(--vk-width-editor-leftmenu) - var(--vk-width-editor-sidebar) ) / 2 );
+	--vk-width-editor-container-inner: calc(  ( 100vw - 280px - 160px ) * var(--vk-width-editor-container) );
 }
 
 body:not(.is-fullscreen-mode) .edit-post-layout:not(.is-sidebar-opened) {
-	--vk-width-editor-container: calc( var(--vk-width-container) - var(--vk-width-editor-leftmenu) );
-	--vk-width-editor-container-body: calc(  ( 100vw - 160px ) * 0.8 - 30px );
-	--vk-width-editor-full: calc( 100vw - var(--vk-width-editor-leftmenu) );
-	--vk-width-editor-wide: calc( var( --vk-width-editor-container-body ) + ( 100vw - var( --vk-width-editor-container-body ) - var(--vk-width-editor-leftmenu) ) / 2 );
+	--vk-width-editor-container-inner: calc(  ( 100vw - 160px ) * var(--vk-width-editor-container) );
 }
 
 body.folded:not(.is-fullscreen-mode) .edit-post-layout:not(.is-sidebar-opened) {
-	--vk-width-editor-container: calc( var(--vk-width-container) - var(--vk-width-editor-leftmenu-folded) );
-	--vk-width-editor-full: calc( 100vw - var(--vk-width-editor-leftmenu-folded) );
-	--vk-width-editor-wide: calc( var( --vk-width-editor-container-body ) + ( 100vw - var( --vk-width-editor-container-body ) - var(--vk-width-editor-leftmenu-folded) ) / 2 );
+	--vk-width-editor-container-inner: calc( ( 100vw - 36px ) * var(--vk-width-editor-container) );
 }
 
 body.folded:not(.is-fullscreen-mode) .edit-post-layout.is-sidebar-opened {
-	--vk-width-editor-container: calc( var(--vk-width-container) - var(--vk-width-editor-leftmenu-folded) - var(--vk-width-editor-sidebar) );
-	--vk-width-editor-full: calc( 100vw - var(--vk-width-editor-leftmenu-folded) - var(--vk-width-editor-sidebar) );
-	--vk-width-editor-wide: calc( var( --vk-width-editor-container-body ) + ( 100vw - var( --vk-width-editor-container-body ) - var(--vk-width-editor-leftmenu-folded) - var(--vk-width-editor-sidebar) ) / 2 );
+	--vk-width-editor-container-inner: calc( ( 100vw - 280px - 36px  ) * var(--vk-width-editor-container) );
 }
 
 .wp-block.editor-post-title {
-	max-width: var(--vk-width-editor-container-body);
+	max-width: var(--vk-width-editor-container);
 }
 
 /**
@@ -995,14 +984,14 @@ body.folded:not(.is-fullscreen-mode) .edit-post-layout.is-sidebar-opened {
 */
 
 .editor-styles-wrapper .is-root-container > .wp-block {
-	width: var(--vk-width-editor-container-body);
-	max-width: var(--vk-width-editor-container-body);
+	width: var(--vk-width-editor-container);
+	max-width: var(--vk-width-editor-container);
 	margin-left: auto;
 	margin-right: auto;
 }
 
-.editor-styles-wrapper .is-root-container .wp-block {
-	max-width: var(--vk-width-editor-container-body);
+.editor-styles-wrapper .is-root-container > .wp-block .wp-block {
+	max-width: 100%;
 }
 
 /*****
@@ -1026,16 +1015,12 @@ div[data-align=full]
 .wp-block[data-align=full]
 	.wp-block-cover
 		div[class*="__inner-container"]
-
-
 */
 
 .editor-styles-wrapper .is-root-container > .wp-block[data-align=full],
 .editor-styles-wrapper .is-root-container > div[data-align=full] {
-	width: var(--vk-width-editor-full);
-	max-width: var(--vk-width-editor-full);
-	margin-left: -10px;
-	margin-right: -10px;
+	width: 100%;
+	max-width: 100%;
 }
 
 .editor-styles-wrapper .is-root-container > .wp-block[data-align=full] .wp-block[data-align=full],
@@ -1046,15 +1031,14 @@ div[data-align=full]
 
 .editor-styles-wrapper .is-root-container > .wp-block[data-align=full] .alignfull,
 .editor-styles-wrapper .is-root-container > div[data-align=full] .alignfull {
-	width: var(--vk-width-editor-full);
 	margin-left: 0;
 	margin-right: 0;
 }
 
 .editor-styles-wrapper .is-root-container > .wp-block[data-align=wide],
 .editor-styles-wrapper .is-root-container > div[data-align=wide] {
-	width: var(--vk-width-editor-wide);
-	max-width: var(--vk-width-editor-wide);
+	width: 90%;
+	max-width: 90%;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -1067,17 +1051,16 @@ div[data-align=full]
 
 .editor-styles-wrapper .is-root-container > .wp-block[data-align=wide] .alignwide,
 .editor-styles-wrapper .is-root-container > div[data-align=wide] .alignwide {
-	width: var(--vk-width-editor-wide);
-	margin-left: auto;
-	margin-right: auto;
+	margin-left: 0;
+	margin-right: 0;
 }
 
 .editor-styles-wrapper .is-root-container > .wp-block[data-align=full] > div > div[class*="__inner-container"],
 .editor-styles-wrapper .is-root-container > div[data-align=full] > div > div[class*="__inner-container"],
 .editor-styles-wrapper .is-root-container > .wp-block[data-align=wide] > div > div[class*="__inner-container"],
 .editor-styles-wrapper .is-root-container > div[data-align=wide] > div > div[class*="__inner-container"] {
-	width: var(--vk-width-editor-container);
-	max-width: var(--vk-width-editor-container);
+	width: var(--vk-width-editor-container-inner);
+	max-width: var(--vk-width-editor-container-inner);
 }
 
 select.form-control {
